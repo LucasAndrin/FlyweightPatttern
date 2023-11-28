@@ -8,8 +8,8 @@ public class TreeDemo {
     final static int TREE_TYPES = 2;
 
     public static void main(String[] args) {
-        generateTrees(true);
-//        generateTrees(false);
+//        generateTrees(true);
+        generateTrees(false);
     }
 
     public static void generateTrees(boolean useFlyweight) {
