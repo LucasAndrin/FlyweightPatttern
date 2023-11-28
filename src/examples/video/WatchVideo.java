@@ -2,15 +2,10 @@ package examples.video;
 
 public class WatchVideo {
     private int position;
-    private final Video instance;
+    private final Video video;
 
-    /**
-     * Constructor
-     *
-     * @param instance VideoFlyweight
-     */
-    public WatchVideo (Video instance) {
-        this.instance = instance;
+    public WatchVideo (Video video) {
+        this.video = video;
     }
 
     public void nextTick() {

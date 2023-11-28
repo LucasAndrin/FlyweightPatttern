@@ -1,5 +1,6 @@
 package examples.video;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class User {
@@ -37,12 +38,8 @@ public class User {
         watchingVideo = VideoFactory.watchVideo(videoId);
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+    public void watchVideoWithoutFlyweight(UUID videoId) {
+        Random rd = new Random();
+        watchingVideo = new WatchVideo(new Video(videoId, rd.nextInt(0, 100)));
     }
 }

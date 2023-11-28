@@ -22,7 +22,7 @@ public class VideoDemo {
         }
 
         for (User user : users) {
-            user.watchVideo(videoIds.get(rd.nextInt(videosSize)));
+            user.watchVideoWithoutFlyweight(videoIds.get(rd.nextInt(videosSize)));
         }
 
         long memory = Memory.getMemoryUsage();
