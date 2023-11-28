@@ -1,17 +1,4 @@
 @startuml
-skinparam backgroundColor #333333
-skinparam class {
-  BackgroundColor #222
-  BorderColor #ffffff
-  FontColor #ffffff
-}
-skinparam classAttribute {
-    FontColor white
-}
-skinparam classMethod {
-    FontColor white
-}
-
 class User {
     - id: UUID
     - name: String

@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class VideoDemo {
-    static final int usersSize = 1000000;
+    static final int usersSize = 1000;
     static final int videosSize = 10;
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class VideoDemo {
         }
 
         for (User user : users) {
-            user.watchVideoWithoutFlyweight(videoIds.get(rd.nextInt(videosSize)));
+            user.watchVideo(videoIds.get(rd.nextInt(videosSize)));
         }
 
         long memory = Memory.getMemoryUsage();

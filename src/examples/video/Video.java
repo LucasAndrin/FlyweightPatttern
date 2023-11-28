@@ -5,6 +5,7 @@ import java.util.UUID;
 public class Video {
     private UUID id;
     private int duration;
+    private byte[] data;
 
     /**
      * Constructor
@@ -30,5 +31,13 @@ public class Video {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }

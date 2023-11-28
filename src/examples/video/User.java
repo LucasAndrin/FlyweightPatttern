@@ -1,5 +1,7 @@
 package examples.video;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Random;
 import java.util.UUID;
 
@@ -40,6 +42,14 @@ public class User {
 
     public void watchVideoWithoutFlyweight(UUID videoId) {
         Random rd = new Random();
-        watchingVideo = new WatchVideo(new Video(videoId, rd.nextInt(0, 100)));
+        Video video = new Video(videoId, rd.nextInt(0, 100));
+        try {
+            FileInputStream input = new FileInputStream(System.getProperty("user.dir") + "/src/" + "DoOrDoNotThereIsNoTry.mp4");
+            video.setData(input.readAllBytes());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        watchingVideo = new WatchVideo(video);
     }
 }
