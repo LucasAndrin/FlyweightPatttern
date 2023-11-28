@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor #333333
+skinparam class {
+  BackgroundColor #222
+  BorderColor #ffffff
+  FontColor #ffffff
+}
+skinparam classAttribute {
+    FontColor white
+}
+skinparam classMethod {
+    FontColor white
+}
+
+class User {
+    - id: UUID
+    - name: String
+    - watchingVideo: WatchVideo
+    + User(UUID id): void
+    + watchVideo(UUID videoId): void
+}
+
+class Video {
+    - id: UUID
+    - duration: int
+}
+
+class WatchVideo {
+    - position: int
+    - video: Video
+    + WatchVideo(video: Video): void
+    + nextTick(): void
+}
+
+class VideoFactory {
+    - Map<UUID, Video> videos;
+    + watchVideo(UUID id): WatchVideo
+}
+
+User --> WatchVideo
+User --> VideoFactory
+WatchVideo --> Video
+@enduml
