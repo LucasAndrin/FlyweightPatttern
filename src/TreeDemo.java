@@ -8,45 +8,29 @@ public class TreeDemo {
     final static int TREE_TYPES = 2;
 
     public static void main(String[] args) {
-//        generateTrees();
-        generateTreesFlyweight();
+        generateTrees(true);
+//        generateTrees(false);
     }
 
-    public static void generateTreesFlyweight(){
-        Forest forest = new Forest(true);
+    public static void generateTrees(boolean useFlyweight) {
+        Forest forest = new Forest(useFlyweight);
         for (int i = 0; i < Math.floor((double) TREES_TO_DRAW / TREE_TYPES); i++) {
-            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "Summer Oak", Color.GREEN, "Oak texture stub");
-            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "Autumn Oak", Color.ORANGE, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "GREEN", Color.GREEN, "Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "ORANGE", Color.ORANGE, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "RED", Color.RED, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "BLUE", Color.BLUE, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "CYAN", Color.CYAN, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "DARK_GRAY", Color.DARK_GRAY, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "MAGENTA", Color.MAGENTA, "Autumn Oak texture stub");
+            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "YELLOW", Color.YELLOW, "Autumn Oak texture stub");
         }
 
         forest.setSize(CANVAS_SIZE, CANVAS_SIZE);
         forest.setVisible(true);
 
-        System.out.println(TREES_TO_DRAW + " trees drawn");
-        System.out.println("---------------------");
-        System.out.println("Memory usage:");
-        System.out.println("Tree size (8 bytes) * " + TREES_TO_DRAW);
-        System.out.println("+ TreeTypes size (~30 bytes) * " + TREE_TYPES + "");
-        System.out.println("---------------------");
-        System.out.println();
-    }
-
-    public static void generateTrees(){
-        Forest forest = new Forest(false);
-        for (int i = 0; i < Math.floor((double) TREES_TO_DRAW / TREE_TYPES); i++) {
-            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "Summer Oak", Color.GREEN, "Oak texture stub");
-            forest.addTree(random(CANVAS_SIZE), random(CANVAS_SIZE), "Autumn Oak", Color.ORANGE, "Autumn Oak texture stub");
-        }
-
-        forest.setSize(CANVAS_SIZE, CANVAS_SIZE);
-        forest.setVisible(true);
-
-        System.out.println(TREES_TO_DRAW + " trees drawn");
-        System.out.println("---------------------");
-        System.out.println("Memory usage:");
-        System.out.println("Tree size (8 bytes) * " + TREES_TO_DRAW);
-        System.out.println("+ TreeTypes size (~30 bytes) * " + TREE_TYPES + "");
-        System.out.println("---------------------");
+        long memory = Memory.getMemoryUsage();
+        System.out.println(memory + " Bytes");
+        System.out.println(Memory.convertToMegabyte(memory) + " MegaBytes");
     }
     private static int random(int max) {
         return (int) (0 + Math.random() * (max+ 1));

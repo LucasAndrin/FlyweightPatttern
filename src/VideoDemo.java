@@ -24,5 +24,9 @@ public class VideoDemo {
         for (User user : users) {
             user.watchVideo(videoIds.get(rd.nextInt(videosSize)));
         }
+
+        long memory = Memory.getMemoryUsage();
+        System.out.println(memory + " Bytes");
+        System.out.println(Memory.convertToMegabyte(memory) + " MegaBytes");
     }
 }
