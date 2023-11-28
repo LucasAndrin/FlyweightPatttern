@@ -1,0 +1,49 @@
+@startuml
+interface TreeI {
+    + draw(Graphics g)
+}
+
+class Tree implements TreeI {
+    - int x
+    - int y
+    - TreeType type
+    + Tree(int x, int y, TreeType type)
+    + draw(Graphics g)
+}
+
+class TreeNoFly implements TreeI {
+    - int x
+    - int y
+    - String name
+    - Color color
+    - String otherTreeData
+    + TreeNoFly(int x, int y, String name, Color color, String otherTreeData)
+    + draw(Graphics g)
+}
+
+class TreeFactory {
+    - static Map<String, TreeType> treeTypes = new HashMap<>()
+    + static TreeType getTreeType(String name, Color color, String otherTreeData)
+}
+
+class TreeType {
+    - String name
+    - Color color
+    - String otherTreeData
+
+    + TreeType(String name, Color color, String otherTreeData)
+    + draw(Graphics g, int x, int y)
+}
+
+class Forest extends JFrame {
+    - List<TreeI> trees = new ArrayList<>()
+    - boolean isFlyweight
+
+    + Forest(boolean isFlyweight)
+    + addTree(int x, int y, String name, Color color, String otherTreeData)
+    + paint(Graphics graphics)
+}
+
+TreeFactory *-- TreeType
+Forest *-- TreeI
+@enduml
