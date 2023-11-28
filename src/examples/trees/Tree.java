@@ -2,7 +2,7 @@ package examples.trees;
 
 import java.awt.*;
 
-public class Tree {
+public class Tree implements TreeI {
     private int x;
     private int y;
     private TreeType type;
