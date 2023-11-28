@@ -6,6 +6,8 @@ public class User {
     private UUID id;
     private String name;
 
+    private WatchVideo watchingVideo;
+
     public User(UUID id) {
         this.id = id;
     }
@@ -29,6 +31,10 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void watchVideo(UUID videoId) {
+        watchingVideo = VideoFactory.watchVideo(videoId);
     }
 
     @Override
