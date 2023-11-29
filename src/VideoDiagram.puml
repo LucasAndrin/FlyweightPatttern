@@ -10,6 +10,7 @@ class User {
 class Video {
     - id: UUID
     - duration: int
+    - data: byte[]
 }
 
 class WatchVideo {
